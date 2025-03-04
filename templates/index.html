@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>Video Processor</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 40%; /* Adjust width as needed */
+            height: 25%; /* Adjust height as needed */
+            background: rgba(255, 255, 255, 0.2); /* Transparent white */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border for better visibility */
+            border-radius: 15px; /* Rounded corners */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+            padding: 20px; /* Optional inner padding */
+            color: #fff; /* Text color for contrast */
+            font-family: Arial, sans-serif; /* Text styling */
+            text-align: center; /* Center-align text */
+            border:2px solid #F3E600;
+            gap: 20px;
+           
+          }
+        body {
+            background-image: url("/image");
+            
+            background-size: cover;
+            
+            color: #f0ebf8;
+            background-color: #f3f5f8;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            padding: 5%;
+            border-radius: 0.31em;
+            
+        }
+        .progress {
+            position: relative;
+            background-color: #333;
+            width: 300px;
+            height: 25px;
+            transform: skew(30deg) translateY(10px);
+            overflow: hidden;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #F3E600;
+            z-index: 0;
+            overflow: hidden;
+        }
+       
+        .bar{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150%;
+            height: 100%;
+            background:linear-gradient(-40deg,#00FFFF 1%,transparent );
+            animation: glitch 1s infinite linear;
+
+        }
+        @keyframes glitch
+        {
+            0%{transform: translate(-110%);}
+            100%
+            {
+                transform: translate(110%);
+            }            
+        }
+        .head{
+            color: black;
+            font-size: 3vw;
+            
+            position: relative;
+            
+            -webkit-text-stroke: 2px #F3E600;
+            text-transform: uppercase;
+        }
+        .head::before{
+            content: attr(data-text);
+            /*content: 'FOOTBALL';*/
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0%;
+            -webkit-text-stroke: 1px #00FFFF;
+            height: 100%;
+            overflow: hidden;
+            animation: move1 3s infinite linear;
+        }
+        
+        @keyframes move1 {
+            0%,10%{width: 0;}
+            70%{
+                width: 100%;
+            }
+            
+        }
+        h2{
+            color: transparent;
+            font-size: 2vw;
+            
+            position: relative;
+            
+            color: #F3E600;
+            text-transform: uppercase;
+        }
+        .bgimg{
+            z-index: -999;
+            height: 100%;
+            width: 100%;
+            color: #00FFFF;
+        }
+        #uploadButton{
+            border:2px solid #F3E600;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+
+            background-color: transparent;
+            color: #F3E600;
+            padding: 12px;
+            transition: 1s;
+        }
+        #fileInput{
+            display: none;
+        }
+        #uploadButton:hover{
+            transform: translateY(-2px);
+            color: #fff;
+        }
+        .progress span{
+            z-index: 999;
+            color: black;
+            font-size: large;
+        }
+        :root{
+            --count:'0%';
+        }
+        .progress::after{
+            content: var(--count);
+            position: absolute;
+            color: black;
+
+            font-weight:bold;
+            left: 10px;
+            transform: skew(-30deg);
+            bottom: 2px;            
+        }
+        .status{
+            text-shadow: 0 0 10px #F3E600,0 0 20px #F3E600, 0 0 40px #F3E600,0 0 80px #F3E600;
+        }
+        .status-success{
+            color: white;
+        }
+        .status-error{
+            color: red;
+        }
+        label span{
+            color: #F3E600;
+            font-weight: 700;
+            padding: 12px;
+        }
+        a{
+            text-decoration: none;
+            border:2px solid #F3E600;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+
+            background-color: transparent;
+            color: #F3E600;
+            padding: 12px;
+            transition: 1s;
+        }
+        a:hover{
+            border:2px solid white;
+            color: white;
+
+        }
+  .icon{
+    font-size: 100px;
+  }
+  #icon{
+    transform: translateY(5px);
+  }
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+    color: #F3E600;
+    outline: none;
+    text-decoration: none;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #F3E600;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+    width: 25%;
+}
+    </style>
+</head>
+<body>
+    <h1 data-text="AI FOOTBALL" class="head"> AI FOOTBALL VIDEO ANALYSIS</h1><br>
+    <div class="container" id="container" style="display: block;">
+        <h1>UPLOAD YOUR VIDEO</h1>
+        <br>
+        <label for="fileInput"><input type="file" id="fileInput" accept="video/*"><span class="status1" onmouseover="hover()" onmouseleave="nothover()">ADD YOUR VIDEO HERE <br><br><ion-icon class="icon" id="open" name="folder-open"></ion-icon></span></label>
+        <br><br>
+        <button id="uploadButton" onclick="uploadFile()" style="cursor: pointer;">UPLOAD</button>        
+        <div class="progress" id="uploadProgress" style="display: none;">
+            <div class="progress-bar" id="uploadBar"><div class="bar"></div></div>
+        </div><br><br>
+        <div id="status" class="status"></div>
+    </div>
+
+    <div id="result" style="display: none;">
+        <br>
+        <h2 class="nav-link">Processed Video <ion-icon name="videocam" id="icon"></ion-icon></h2><br>
+        <div id="outputContainer"></div>
+    </div>
+    <!--output section HANDLE WITH CARE-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        function hover(){
+            document.querySelector('.status1').style.color="white";
+            document.querySelector('.status1').style.textShadow="0 0 10px #F3E600,0 0 20px #F3E600, 0 0 40px #F3E600,0 0 80px #F3E600";
+        }
+        function nothover(){
+            document.querySelector('.status1').style.color="#F3E600";
+            document.querySelector('.status1').style.textShadow="none";
+        }
+        document.getElementById('fileInput').addEventListener('change', function() {
+            const fileName = this.files[0] ? this.files[0].name : 'ADD YOUR VIDEO HERE';
+            if (this.files[0])
+            {
+                hover()
+                document.querySelector('.status1').innerHTML = fileName+` choosed<br><br><ion-icon id="close" class="icon" name="folder"></ion-icon>`;
+            }
+            else
+            {
+                document.querySelector('.status1').innerHTML = fileName+`<br><br><ion-icon id="open" class="icon" name="folder-open"></ion-icon>`;
+                document.getElementById('status').innerHTML ='';
+                nothover()
+            }
+        });
+        const socket = io.connect('http://localhost:5000');
+        socket.on('processing_complete', (data) => {
+            const statusDiv = document.getElementById('status');
+            if(data.status === 'success') {
+                statusDiv.innerHTML = `Processing completed!`;
+                statusDiv.className = 'status status-success';
+                uploadProgress.style.display="Block";
+                showResult(data.filename);
+            } else {
+                statusDiv.innerHTML = `Error: ${data.message}`;
+                statusDiv.className = 'status status-error';
+                uploadProgress.style.display="None";
+            }
+        });
+        async function uploadFile() {
+
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+                if(!response.ok) throw new Error(result.message);
+                document.getElementById('status').className = 'status status-success';
+                document.getElementById('status').innerHTML = 'Processing started...';
+                uploadProgress.style.display="block";
+                simulateUpload(file).then(() => {
+                    
+                    //uploadProgress.style.display="None";
+                });
+            } catch(error) {
+                document.getElementById('status').innerHTML = error.message;
+                document.getElementById('status').className = 'status status-error';
+            }
+        }
+        function simulateUpload(file) {
+            return new Promise((resolve) => {
+                let progress = 0;
+                uploadProgress.style.display = 'block';
+                const interval = setInterval(() => {
+                    progress += 10;
+                    uploadBar.style.width = `${progress}%`;
+                    uploadProgress.style.setProperty('--count', '"'+progress+'%"');
+
+                    if (progress >= 90) {
+                        clearInterval(interval);
+                        resolve();
+                    }
+                }, 1000);
+            });
+        }
+        function showResult(filename){
+            const container = document.getElementById('outputContainer');
+            uploadBar.style.width = `100%`;
+            uploadProgress.style.setProperty('--count', '"100%"');
+            setTimeout(()=>{container.innerHTML = `
+                <video controls width="100%">
+            <source src="/output/${filename}" type="video/mp4">
+        </video><br><br>
+        <p>
+            <center><a href="/output/${filename}" download>Download</a><br><br><br><a onclick="location.reload();">Try another video</a></center>
+        </p>
+            `;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('container').style.display = 'none';},2000);
+        }
+    </script>
+</body>
+</html>

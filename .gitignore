@@ -1,0 +1,7 @@
+/.vscode
+/yolov8x.pt
+models/best.pt
+models/last.pt
+runs/detect
+training/football-players-detection-2/
+/.venv
