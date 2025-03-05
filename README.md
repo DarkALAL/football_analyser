@@ -43,3 +43,6 @@ To run this project, you need to have the following requirements installed:
 - Now start the `app.py` using the command:
   `python3 app.py`
 - Now go to `http://127.0.0.1:5000` on your local machine and upload the video from the `sample videos`.
+
+# WARNING!!!!
+- System needs atleast of `16 GB` of Memory to run this model `YOLO V5xu` opt for a small model in training your system
