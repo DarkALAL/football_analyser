@@ -1,7 +1,11 @@
 # Football Analysis
 
 ## Introduction
-The goal of this project is to detect and track players, referees, and footballs in a video using YOLO, one of the best AI object detection models available. We will also train the model to improve its performance. Additionally, we will assign players to teams based on the colors of their t-shirts using Kmeans for pixel segmentation and clustering. With this information, we can measure a team's ball acquisition percentage in a match. We will also use optical flow to measure camera movement between frames, enabling us to accurately measure a player's movement. Furthermore, we will implement perspective transformation to represent the scene's depth and perspective, allowing us to measure a player's movement in meters rather than pixels. Finally, we will calculate a player's speed and the distance covered. This project covers various concepts and addresses real-world problems, making it suitable for both beginners and experienced machine learning engineers.
+The goal of this project is to detect and track players, referees, and footballs in a video using YOLO—one of the most advanced AI object detection models available. In addition to leveraging YOLO for initial object detection, the model will be further trained to enhance its performance over time. To distinguish teams on the field, players will be assigned to teams based on the colors of their t-shirts through K-means pixel segmentation and clustering techniques. This information will then be used to calculate each team's ball acquisition percentage during a match.
+
+Furthermore, the project employs optical flow algorithms to measure camera movement between frames, which enables the precise tracking of individual player movements. By applying perspective transformation, the scene’s depth and perspective are accurately represented, allowing for the measurement of player movement in meters instead of pixels. These calculations will also provide key metrics such as player speed and distance covered.
+
+To enhance user experience and accessibility, a simple yet professional frontend and backend have been developed using Flask. This integration offers an intuitive and streamlined interface, ensuring that both beginners and experienced machine learning engineers can easily interact with and benefit from the system.
 
 ![Screenshot](output_videos/screenshot.png)
 
@@ -14,13 +18,14 @@ The following modules are used in this project:
 - Speed and distance calculation per player
 
 ## Trained Models
-- [Trained Yolo v5xu](https://drive.google.com/drive/folders/1bgE6JcS-VgFr3FsZl8BfevK-o4hE3OPH?usp=sharing)
+- [Trained Yolo v5xu](https://drive.google.com/drive/folders/1tS4um8lus-l4OJ5DOA04bYQrIJsrBK8Q?usp=sharing)
 
 ## Sample video
--  [Sample input video](https://drive.google.com/file/d/1t6agoqggZKx6thamUuPAIdN_1zR9v9S_/view?usp=sharing)
+-  [Sample input video](https://drive.google.com/drive/folders/1bgE6JcS-VgFr3FsZl8BfevK-o4hE3OPH?usp=sharing)
 
 ## Requirements
 To run this project, you need to have the following requirements installed:
+- FFmpeg
 - Python 3.x
 - ultralytics
 - supervision
