@@ -35,3 +35,11 @@ To run this project, you need to have the following requirements installed:
 - NumPy
 - Matplotlib
 - Pandas
+
+# Instructions
+- Create a virtual environment and activate it.
+- Install the requirements from the file `requirements.txt` to an virual environment with the command:
+  `pip install -r requirements.txt`
+- Now start the `app.py` using the command:
+  `python3 app.py`
+- Now go to `http://127.0.0.1:5000` on your local machine and upload the video from the `sample videos`.
